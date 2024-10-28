@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/serif.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<style>
+			/* Feste Positionierung der Überschrift */
+			.header-title {
+				position: absolute;
+				top: 20px;      /* Abstand vom oberen Rand */
+				left: 20px;     /* Abstand vom linken Rand */
+				font-size: 0.8em;
+				font-weight: bold;
+				margin: 0;
+			}
+			
+			/* Bereich für alle Folieninhalte mit festem Abstand zur Überschrift */
+			.content-container {
+				padding-top: 80px;  /* Abstand zur Überschrift */
+			}
+
+					  /* Absatz-Textstil */
+					  .slide-text {
+			font-size: 0.5em;
+			color: #333;
+			margin-top: 20px; /* Abstand zwischen Text und anderem Inhalt */
+			}
+			
+			/* Einstellungen für das Bild */
+			.slide-image {
+				width: 80%;
+				height: auto;
+			}
+
+	
+		
+			/* Quellenangabe für das Bild */
+			.image-source {
+				text-align: right;
+				font-size: 0.4em;
+				color: #666;
+			}
+		</style>
+	
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+	<!-- Slide 1: Titel -->
+	<section>
+	<h3>Post-Quanten-Kryptographie (PQC) vs Quantum Key Distribution (QKD)</h3>
+	<p><strong>Die wichtigsten Unterschiede und wie sie sich ergänzen können</strong></p>
+	<p><small>Päsentation von: Felix Schärtl</small></p>
+</section>
+
+<!-- Slide 2: Agenda -->
+<section>
+	<h2>Agenda</h2>
+	<ul>
+		<li>Problem: Disruption Quantencomputer</li>
+		<li>Lösung: PQC, QKD?</li>
+		<li>Vergleich PQC und QKD</li>
+		<li>Fazit</li>
+	</ul>
+</section>
+
+<!-- Slide 3: Was ist PQC? -->
+<section>
+
+	<section>
+		<h5 class="header-title">Das Verfahren von Grover</h5>		
+		<!-- Container für den Folieninhalt -->
+		<div class="content-container">
+			<img
+				src="images/grover_algorithm.png"
+				class="slide-image"
+			/>
+			<div class="image-source">
+				<p>Quelle: https://arxiv.org/abs/quant-ph/9605043</p>
+			</div>
+		</div>
+	</section>
+
+
+	<section>
+		<h5 class="header-title">Das Verfahren von Shor</h5>		
+		<!-- Container für den Folieninhalt -->
+		<div class="content-container">
+			<img
+				src="images/shor_algorithm.png"
+				class="slide-image"
+			/>
+			<div class="image-source">
+				<p>Quelle: https://arxiv.org/abs/quant-ph/9508027</p>
+			</div>
+		</div>
+	</section>
+
+
+	<section>
+		<h5 class="header-title">IBM Q System One</h5>		
+		<!-- Container für den Folieninhalt -->
+		<div class="content-container">
+			<img
+				src="images/ibm_fifty_qubit.jpg"
+				class="slide-image"
+			/>
+			<div class="image-source">
+				<p>Quelle: IBM</p>
+			</div>
+		</div>
+	</section>
+
+
+	<section>
+		<h5 class="header-title">Bedrohung</h5>		
+		<!-- Container für den Folieninhalt -->
+		 <p class="slide-text">
+			Ein Nicht-spezifizierter Angreifer (NSA) speichert Daten
+und findet den Schlüssel später.
+		 </p>
+		<div class="content-container">
+			<img
+				src="images/nsa-utah-data-center.jpg"
+				class="slide-image"
+			/>
+			<div class="image-source">
+				<p>Quelle: National Security Agency</p>
+			</div>
+		</div>
+	</section>
+
+	
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">Bedrohung</h4>
+		</div>
+	<img
+	src="images/mosca.png"
+	style="width: 80%; height: auto;"
+	/>
+	<div style="text-align: right;">
+        <p style="font-size: 0.4em; color: #666;">Quelle: National Security Agency</p>
+	</div>
+	</section>
+
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">Arbeitshyptose</h4>
+		</div>
+		<p>
+			Anfang der 2030er Jahre gibt es mit einer signifikanten Wahrscheinlichkeit einen kryptographisch
+relevanten Quantencomputer.
+		</p>
+	</section>
+
+
+</section>
+
+
+<!-- Slide 3: Was ist PQC? -->
+ <section>
+<section>
+	<div style="text-align: left;">
+		<h4 style="margin: 0;">Lösungsvorschläge</h4>
+	</div>
+	<h3>Post-Quanten-Kryptographie (PQK)
+	</h3>
+	<h3>Qauntum Key Distribution (QKD)</h3>
+</section>
+
+<section>
+	<h2>Was ist Post-Quanten-Kryptographie (PQC)?</h2>
+	<ul>
+		<li>Klassische kryptografische Algorithmen, die gegen Quantenangriffe resistent sind</li>
+		<li>Basierend auf mathematisch schwierigen Problemen, z. B. Gitter-basierte und Hash-basierte Kryptografie</li>
+		<li>Kann ohne Quantenhardware auf klassischen Systemen eingesetzt werden</li>
+		<li>Geeignete Verfahren werden aktuell in einem Wettbewerb gesucht </li>
+	</ul>
+</section>
+<section>
+	<h2>Was ist Quantum Key Distribution (QKD)?</h2>
+	<ul>
+		<li>Quantentechnologie zur sicheren Schlüsselverteilung</li>
+		<li>Nutzt Quantenphysik zur Absicherung gegen Abhören</li>
+		<li>Benötigt spezielle Hardware für die Quantenkommunikation</li>
+	</ul>
+</section>
+
+ </section>
+<!-- Slide 5: Vor- und Nachteile von PQC -->
+ <section>
+<section>
+	<h2>PQC: Vor- und Nachteile</h2>
+	<p><strong>Vorteile</strong></p>
+	<ul>
+		<li>Kompatibel mit bestehender IT-Infrastruktur</li>
+		<li>Erfordert keine spezielle Quanten-Hardware</li>
+		<li>Widerstandsfähig gegen Quanten- und klassische Angriffe</li>
+	</ul>
+	<p><strong>Nachteile</strong></p>
+	<ul>
+		<li>Keine "Eierlegende Wollmilchsau" in Sicht</li>
+		<li>Langzeit-Sicherheit noch in der Forschung</li>
+	</ul>
+</section>
+
+<!-- Slide 6: Vor- und Nachteile von QKD -->
+<section>
+	<h2>QKD: Vor- und Nachteile</h2>
+	<p><strong>Vorteile</strong></p>
+	<ul>
+		<li>Theoretisch unknackbar bei korrekter Implementierung</li>
+		<li>Erlaubt Echtzeit-Erkennung von Abhörversuchen</li>
+	</ul>
+	<p><strong>Nachteile</strong></p>
+	<ul>
+		<li>Benötigt spezialisierte Hardware für die Quantenkommunikation</li>
+		<li>Begrenzte Übertragungsdistanz</li>
+	</ul>
+</section>
+<!-- Slide 7: Vergleich PQC und QKD -->
+<section>
+	<h2>Vergleich: PQC vs. QKD</h2>
+	<table>
+		<tr>
+			<th>Merkmal</th>
+			<th>PQC</th>
+			<th>QKD</th>
+		</tr>
+		<tr>
+			<td>Infrastruktur</td>
+			<td>Klassisch</td>
+			<td>Quantenbasiert</td>
+		</tr>
+		<tr>
+			<td>Sicherheitsgrundlage</td>
+			<td>Mathematische Probleme</td>
+			<td>Quantenmechanik</td>
+		</tr>
+		<tr>
+			<td>Implementierung</td>
+			<td>Breit skalierbar</td>
+			<td>Begrenzte Reichweite und Infrastruktur</td>
+		</tr>
+	</table>
+</section>
+
+<!-- Slide 8: BSI -->
+<section>
+	<h3>Handlungsempfehlung des BSI PQC</h3>
+	<ul>
+		<li>Kryptoagilität</li>
+		<li>Hash-basierte Signaturverfahren für Software-Updates</li>
+		<li>Schlüssellängen für symmetrische Verschlüsselung</li>
+		<li>Kurzfristige Schutzmaßnahmen</li>
+		<li>Hybride Lösungen</li>
+		<li>Anpassung von kryptographischen Protokollen</li>
+		<li>Quanten-resistente Schlüsseleinigung</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Handlungsempfehlung des BSI QKD</h2>
+	<ul>
+		<li> </li>
+
+	
+	</ul>
+</section>
+
+</section>
+
+<!-- Slide 9: Fazit -->
+<section>
+	<h2>Fazit</h2>
+	<ul>
+		<li>PQC und QKD decken unterschiedliche Aspekte der Quanten-Bedrohungen ab</li>
+		<li>PQC ist heute praktikabler und skalierbarer</li>
+		<li>QKD könnte bei der Verbindung von Datencentern zum Einsatz kommen</li>
+		<li>Quantencomputer stellen eine disruptive Technologie dar </li>
+		<li> Es gilt daher, rechtzeitig aktiv zu werden und angemessen zu schützen </li>
+		<li>In Kombination: umfassende Sicherheitsstrategie für die Zukunft</li>
+	</ul>
+	<p>Vielen Dank für Ihre Aufmerksamkeit!</p>
+</section>
+	</div>
+</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

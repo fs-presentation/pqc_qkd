@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/serif.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style>
+			p {
+  
+ 		 font-size: 0.5em;
+			}
+			li {
+				font-size: 0.5em;
+			}
+		</style>
+
+<style>
+	/* Zentrales Container für die gesamte Mindmap */
+	.mindmap-container {
+		position: relative;
+		width: 500px;
+		height: 500px;
+		margin: 0 auto;
+		border: 2px solid #ddd;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* Zentrales Wort in der Mitte */
+	.center-word {
+		position: absolute;
+		font-size: 1.5em;
+		font-weight: bold;
+		color: #333;
+	}
+
+	/* Umgebende Begriffe */
+	.branch {
+		position: absolute;
+		font-size: 1em;
+		color: #555;
+		font-weight: bold;
+	}
+
+	/* Verbindungslinien */
+	.line {
+		position: absolute;
+		width: 2px;
+		background-color: #999;
+	}
+
+	/* Positionierung der Begriffe um das zentrale Wort */
+	.top { top: 50px; left: 50%; transform: translateX(-50%); }
+	.bottom { bottom: 50px; left: 50%; transform: translateX(-50%); }
+	.left { left: 50px; top: 50%; transform: translateY(-50%); }
+	.right { right: 50px; top: 50%; transform: translateY(-50%); }
+
+	/* Linien-Styles */
+	.line-top { top: 75px; left: 50%; height: 50px; transform: translateX(-50%); }
+	.line-bottom { bottom: 75px; left: 50%; height: 50px; transform: translateX(-50%); }
+	.line-left { left: 75px; top: 50%; width: 50px; transform: translateY(-50%); }
+	.line-right { right: 75px; top: 50%; width: 50px; transform: translateY(-50%); }
+</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+	<!-- Slide 1: Titel -->
+	<section>
+	<h4>Post-quantum cryptography (PQC) <br> und <br> Quantum key distribution (QKD)</h4>
+	<p style="font-size: 30px;"><strong>Die wichtigsten Unterschiede und wie sie sich ergänzen können</strong></p>
+</section>
+
+<!-- Slide 2: Agenda -->
+<section>
+	<h4>Agenda</h4>
+	<ul style="font-size: 50px;">
+		<li class="fragment">Problem: Disruption Quantencomputer</li>
+		<li class="fragment">Lösung: PQC, QKD?</li>
+		<li class="fragment">Vergleich PQC und QKD</li>
+		<li class="fragment">Fazit</li>
+	</ul>
+</section>
+
+
+
+
+<!-- Slide 3: Was ist PQC? -->
+<section>
+
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">Das Verfahren von Grover</h4>
+		</div>
+	<img
+	src="images/grover_algorithm.png"
+	style="width: 80%; height: auto;"
+	/>
+	<div style="text-align: right;">
+        <p style="font-size: 0.4em; color: #666;">Quelle: https://arxiv.org/abs/quant-ph/9605043</p>
+	</div>
+	</section>
+
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">Das Verfahren von Shor</h4>
+		</div>
+	<img
+	src="images/shor_algorithm.png"
+	style="width: 80%; height: auto;"
+	/>
+	<div style="text-align: right;">
+        <p style="font-size: 0.4em; color: #666;">Quelle: https://arxiv.org/abs/quant-ph/9508027</p>
+	</div>
+	</section>
+
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">IBM Q System One</h4>
+		</div>
+		<img
+	src="images/ibm_fifty_qubit.jpg"
+	style="width: 80%; height: auto;"
+	/>
+	<div style="text-align: right;">
+        <p style="font-size: 0.4em; color: #666;">Quelle: IBM</p>
+	</div>
+	</section>
+	
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">Angriffsflächen heute</h4>
+		</div>
+		<p>Ein <strong>N</strong>icht-<strong>s</strong>pezifizierter <strong>A</strong>ngreifer (NSA) speichert Daten
+		<br>	und findet den Schlüssel später.
+		</p>
+		<p class="fragment">
+		“store now, decrypt later”
+		</p>
+	<img
+	src="images/nsa-utah-data-center.jpg"
+	style="width: 80%; height: auto;"
+	/>
+	<div style="text-align: right;">
+        <p style="font-size: 0.4em; color: #666;">Quelle: National Security Agency</p>
+	</div>
+	</section>
+
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">Angriffsflächen heute: (Mosca’s Theorem) </h4>
+		</div>
+		<p class="fragment" style="text-align: left;">Ab wann müssen wir uns Sorgen machen? </p>
+		<ul>
+ <li class="fragment">Wie lange benötigt man sichere Verschlüsselung? (x Jahre) </li>
+<li class="fragment"> Wie lange dauert die Anpassung der Infrastruktur? (y Jahre) </li>
+<li class="fragment">Wie lange dauert es, einen praktikablen Quantencomputer zu bauen? (z Jahre) </li>		
+		</ul>
+	<img
+	src="images/pqc_mosca2.png"
+	style="width: 80%; height: auto;"
+	/>
+	<div style="text-align: right;">
+        <p style="font-size: 0.4em; color: #666;">Quelle: Fraunhofer Institut SIT</p>
+	</div>
+	</section>
+
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">Arbeitshyptose BSI</h4>
+		</div>
+		<p>
+			Anfang der 2030er Jahre gibt es mit einer signifikanten Wahrscheinlichkeit einen kryptographisch
+relevanten Quantencomputer.
+		</p>
+	</section>
+
+</section>
+
+
+<!-- Slide 3: Was ist PQC? -->
+<section>
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">Lösungsvorschlag:</h4>
+		</div>
+		<h4>Post-Quanten-Kryptographie (PQK)
+		</h4>
+	</section>
+	
+	<section>
+		<h4>Was ist Post-Quanten-Kryptographie?</h4>
+		<ul>
+			<li class="fragment">Klassische kryptografische Algorithmen, die gegen Quantenangriffe resistent sind</li>
+			<li class="fragment">Basierend auf mathematisch schwierigen Problemen, z. B. Gitter-basierte und Hash-basierte Kryptografie</li>
+			<li class="fragment">Kann ohne Quantenhardware auf klassischen Systemen eingesetzt werden</li>
+			<li class="fragment">Geeignete Verfahren werden aktuell in einem Wettbewerb gesucht (NIST) </li>
+		</ul>
+	</section>
+	
+	<!-- Slide 5: Vor- und Nachteile von PQC -->
+
+	<section>
+		<h4>PQC: Vor- und Nachteile</h4>
+		<p class="fragment"><strong>Vorteile</strong></p>
+		<ul class="fragment">
+			<li>Kompatibel mit bestehender IT-Infrastruktur</li>
+			<li>Erfordert keine spezielle Quanten-Hardware</li>
+			<li>Widerstandsfähig gegen Quanten- und klassische Angriffe</li>
+		</ul>
+		<p  class="fragment"><strong>Nachteile</strong></p>
+		<ul  class="fragment">
+			<li>Keine "Eierlegende Wollmilchschwein" in Sicht</li>
+			<li>Langzeit-Sicherheit noch in der Forschung</li>
+		</ul>
+	</section>
+	
+	
+	
+	<!-- Slide 8: BSI -->
+	<section>
+		<h4>Handlungsempfehlung des BSI PQC</h4>
+		
+		<!-- Container für Bild und Text, die nebeneinander erscheinen sollen -->
+		<div style="display: flex; align-items: center;">
+			
+			<!-- Text-Fragment links -->
+			<p  style="font-size: 1.2em; max-width: 60%; margin-right: 20px;">
+				<ul>
+					<li>Hash-basierte Signaturverfahren für Software-Updates</li>
+					<li>Schlüssellängen für symmetrische Verschlüsselung</li>
+					<li>Hybride Lösungen</li>
+					<li>Anpassung von kryptographischen Protokollen</li>
+					<li>Quanten-resistente Schlüsseleinigung</li>
+				</ul>
+			
+			<!--<ul>
+					<li> Quantencomputer bedrohen die aktuelle Public-Key-Kryptografie </li>
+					<li> Arbeitshyptose: Anfang der 2030er-Jahre gibt es kryptografisch relevante Quantencomputer</li>
+					<li> PQC bietet quantensichere Alternativen </li>
+					<li> Die Standardisierung der PQC-Algorithmen erfolgt derzeit durch das NIST </li>
+					<li> Das BSI hat 2020 Empfehlungen für quantensichere Schlüsseleinigungsverfahren veröffentlicht; die gewählten Verfahren gelten als sicherheitskonservativ. </li>
+					<li> Hashbasierte Signaturen sind BSI-empfohlen (nicht für alle Anwendungsfälle geeignet)</li>
+
+
+
+				</ul>
+			-->
+			</p>
+			
+			<!-- Bild-Fragment rechts -->
+			<img src="images/bsi_pqc.png"
+				 style="width: 40%; height: auto;" alt="Beispielbild">
+				 
+		</div>
+	</section>
+	
+
+
+</section>
+
+<!-- Slide 3: Was ist QKD? -->
+<section>
+	<section>
+		<div style="text-align: left;">
+			<h4 style="margin: 0;">Lösungsvorschlag:</h4>
+		</div>
+		<h4>Quantum Key Distribution (QKD)</h4>
+	</section>
+	<section>
+		<h4>Was ist Quantum Key Distribution?</h4>
+		<ul>
+			<li  class="fragment"> Quantentechnologie zur sicheren Schlüsselverteilung</li>
+			<li  class="fragment" >Nutzt Quantenphysik zur Absicherung gegen Abhören</li>
+			<li  class="fragment">Benötigt spezielle Hardware für die Quantenkommunikation</li>
+		</ul>
+	</section>
+	
+
+	
+	<!-- Slide 6: Vor- und Nachteile von QKD -->
+	<section>
+		<h4>QKD: Vor- und Nachteile</h4>
+		<p class="fragment"><strong>Vorteile</strong></p>
+		<ul class="fragment">
+			<li>Theoretisch unknackbar bei korrekter Implementierung</li>
+			<li>Erlaubt Echtzeit-Erkennung von Abhörversuchen</li>
+		</ul>
+		<p class="fragment"><strong>Nachteile</strong></p>
+		<ul class="fragment">
+			<li>Benötigt spezialisierte Hardware für die Quantenkommunikation</li>
+			<li>Begrenzte Übertragungsdistanz</li>
+		</ul>
+	</section>
+
+	<!-- Slide 8: BSI -->
+	
+	<section>
+		<h4>Handlungsempfehlung des BSI QKD</h4>
+		
+		<!-- Container für Bild und Text, die nebeneinander erscheinen sollen -->
+		<div style="display: flex; align-items: center;">
+			
+			<!-- Text-Fragment links -->
+			<p style="font-size: 1.2em; max-width: 60%; margin-right: 20px;">
+				<ul>
+					<li>In den meisten praktischen Fällen nicht einsetzbar</li>
+					<li>QKD-Protokoll-Standards fehlen</li>
+					<li>QKD-Sicherheitsbeweise fehlen</li>
+					<li>Bewertungskriterien und -methodik</li>
+				</ul>
+			</p>
+			
+			<!-- Bild-Fragment rechts -->
+			<img src="images/bsi_qkd.png" 
+				 style="width: 40%; height: auto;" alt="Beispielbild">
+				 
+		</div>
+	</section>
+	
+	</section>
+
+<section>
+	<!-- Slide 7: Vergleich PQC und QKD -->
+	<section>
+		<h4>Vergleich: PQC vs. QKD</h4>
+		<table style="font-size: 25px;">
+			<tr>
+				<th>Merkmal</th>
+				<th>PQC</th>
+				<th>QKD</th>
+			</tr>
+			<tr>
+				<td>Infrastruktur</td>
+				<td>Klassisch</td>
+				<td>Quantenbasiert</td>
+			</tr>
+			<tr>
+				<td>Sicherheitsgrundlage</td>
+				<td>Mathematische Probleme</td>
+				<td>Quantenmechanik</td>
+			</tr>
+			<tr>
+				<td>Implementierung</td>
+				<td>Breit skalierbar</td>
+				<td>Begrenzte Reichweite und Infrastruktur</td>
+			</tr>
+		</table>
+	</section>
+
+</section>
+
+
+<!-- Slide 9: Fazit -->
+<section>
+	<h4>Fazit</h4>
+	<ul class="fragment">
+		<li>Quantencomputer stellen eine disruptive Technologie dar </li>
+		<li> Es gilt daher, rechtzeitig aktiv zu werden und angemessen zu schützen </li>
+		<li>PQC und QKD decken unterschiedliche Aspekte der Quanten-Bedrohungen ab</li>
+		<li>PQC ist heute praktikabler und skalierbarer</li>
+		<li>QKD ist geeignet für die sichere Verbindung von Rechenzentren</li>
+		<li>In Kombination: umfassende Sicherheitsstrategie für die Zukunft</li>
+	</ul>
+	<p class="fragment">Vielen Dank für Ihre Aufmerksamkeit!</p>
+</section>
+	</div>
+</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
